@@ -12,11 +12,12 @@ jobs:
   deploy:
     name: Deploy backend app
     runs-on: ubuntu-latest
+    concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Flyctl
-        uses: superfly/flyctl-actions@latest
+        uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to Fly.io
         run: flyctl deploy --remote-only -a fly-backend1 # Explicitly specify app name
