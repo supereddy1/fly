@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Flyctl
-        uses: superfly/flyctl-actions/setup@master
+        uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to Fly.io
         run: flyctl deploy --remote-only -a fly-backend1 # Explicitly specify app name
