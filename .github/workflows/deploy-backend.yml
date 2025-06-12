@@ -20,7 +20,7 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to Fly.io
-        run: flyctl deploy --remote-only -a fly-backend1 # Explicitly specify app name
+        run: flyctl deploy --remote-only
         working-directory: ./backend # Tell flyctl to run from the backend directory
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

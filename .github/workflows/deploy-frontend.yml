@@ -15,10 +15,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Flyctl
-        uses: superfly/flyctl-actions/setup@master
+        uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Deploy to Fly.io
-        run: flyctl deploy --remote-only -a fly-frontend # Explicitly specify app name
+        run: flyctl deploy --remote-only
         working-directory: ./frontend # Tell flyctl to run from the frontend directory
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
