@@ -19,6 +19,21 @@ jobs:
       - name: Set up Flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
 
+      - name: Debug - Check current directory and files
+        run: |
+          pwd
+          ls -la
+          echo "--- Contents of fly.toml ---"
+          cat fly.toml
+        working-directory: ./backend
+
+      - name: Debug - Fly auth and app info
+        run: |
+          flyctl auth whoami
+          flyctl apps list
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
       - name: Deploy to Fly.io
         run: flyctl deploy --remote-only
         working-directory: ./backend # Tell flyctl to run from the backend directory
