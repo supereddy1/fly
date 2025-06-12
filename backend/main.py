@@ -5,7 +5,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:5173", # Your Svelte dev server
-    "https://elif-backend.fly.dev", # Your deployed Svelte app domain
+    "https://fly-frontend.fly.dev", # Your deployed Svelte app domain
 ]
 
 app.add_middleware(
